@@ -1,8 +1,6 @@
 console.log("Hello, World!");
 
 const cheerio = require("cheerio");
-const axios = require("axios");
-var fs = require("fs");
 var queries = require('./queries')
 const numbers = "0123456789,";
 const _ = require("lodash"); 
