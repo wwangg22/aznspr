@@ -10,7 +10,7 @@ export default function Headers() {
     const [percentage, setPercentage] = useState(0);
     var dict = {};
 
-    const socket = new WebSocket("ws://localhost:3000/");//window.location.host + "/ws/");
+    const socket = new WebSocket("ws://" + window.location.host + "/ws/");
 
     socket.addEventListener('open', function (event) {
         socket.send('Hello Server!');
