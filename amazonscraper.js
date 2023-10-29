@@ -208,7 +208,6 @@ function isdifferent(data1,name, price, numreview, review, keywords, descrip,fea
   }
 }
 module.exports = {
-  runAmazon,
   test,
   testing
   

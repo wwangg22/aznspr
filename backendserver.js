@@ -117,14 +117,6 @@ app.post('*', (req, res) => {
         console.log(result)
         for (const b in result){
             progress[count] = 0;
-            // amazon.testing(dic).then(()=>{
-            //     console.log('done');
-            //     console.log(dic);
-            // })
-            //amazon.runAmazon(result[b].content)
-            // amazon.test(result[b].content,cookies,wss,progress,count).then(()=>{
-                
-            // });
             count += 1
         }
         runAma(result,cookies,progress);
