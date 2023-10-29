@@ -1,0 +1,27 @@
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.back-button {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: none;
+    background-color: #666;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+.site-title {
+    margin: 0;
+}

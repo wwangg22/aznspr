@@ -1,0 +1,46 @@
+
+.rerunbtn{
+    position: relative;
+    margin: auto;
+    align-self: center;
+    color:cornflowerblue;
+    font-weight: 1000;
+    border:3px solid beige;
+    text-align: center;
+    z-index:1;
+    width:120px;
+    height:30px;
+    border-radius: 15px;
+}
+.rerunbtn.mobile{
+    z-index:0;
+    margin-bottom: 15px;
+    height:42px;
+}
+.rerunbtn:hover{
+    background-color: antiquewhite;
+}
+.cookies{
+    border-radius: 15px;
+    height:30px;
+    background-color: whitesmoke;
+    width:100%;
+    position: relative;
+    margin-top: 20px;
+}
+.cookielabel{
+    position: relative;
+    margin:auto;
+    margin-top: 20px;
+}
+.cookiebutton{
+    margin:auto;
+    width:120px;
+    height:30px;
+    border-radius: 15px;
+    margin-top: 20px;
+    position:relative;
+}
+.cookiebutton:hover{
+    background-color:cornflowerblue;
+}

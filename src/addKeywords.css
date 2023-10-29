@@ -1,0 +1,118 @@
+.addkeywords{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    width: 10%;
+    min-width: 170px;
+    margin:auto;
+    height:42px; /* high z-index to ensure it appears on top */
+    z-index: 1;
+}
+.addkeywords.mobile{
+    z-index:0;
+    margin:0;
+    height:42px;
+}
+.addkeywordsbtn{
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    border: 3px solid beige;
+    cursor:pointer;
+    width:100%;
+    height:42px;
+    font-weight:900;
+    color:cornflowerblue;
+    font-size:0.9rem;
+}
+.addkeywordsbtn:hover{
+    background-color: antiquewhite;
+}
+.popup{
+    display:none;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    position:fixed;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin: auto;
+    background-color: #D5FFFF70;
+    width: 25%;
+    min-width:250px;
+    min-height:400px;
+    height:40%;
+    border-radius: 20px;
+    border: 1rem solid lightblue;
+    opacity: 0;
+    transition:1s;
+}
+.popup.show{
+    display:flex;
+    transition: 1s;
+    opacity: 1;
+    z-index:1002;
+}
+.popuptitle{
+    margin: auto;
+    position:relative;
+    font-weight: 800;
+    font-size: larger;
+}
+.backdrop{
+    position:fixed;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    z-index:-1;
+}
+.backdrop.show{
+    opacity: 1;
+    z-index: 1000;
+}
+.closebutton{
+    position:relative;
+    font-size: 2rem;
+    width:auto;
+    top:0;
+    left:0;
+    z-index:1001;
+    font-weight: 1000;
+}
+.option.pop{
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0.5)
+}
+.popupoptionslist{
+    width:100%;
+    margin-top:100px;
+}
+.option.keywordinput{
+    width:75%;
+}
+.option.addkeywordsbtn{
+    width:15%;
+    font-weight: 2000;
+    font-size: 1rem;
+}
+.optionsname{
+    width:60%;
+    display:inline-grid;
+}
+.deletebtn{
+    position:relative;
+    width:35%;
+    display:inline-grid;
+}
+.block{
+    overflow-y:auto;
+    max-height: 200px;
+}

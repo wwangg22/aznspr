@@ -1,0 +1,7 @@
+.progressbar{
+    outline: 5px solid darkblue;
+}
+.progressbartitle{
+    font-size: large;
+    color: darkgoldenrod;
+}

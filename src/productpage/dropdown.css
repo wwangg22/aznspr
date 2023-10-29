@@ -1,0 +1,31 @@
+/* Container for the dropdown */
+select {
+    width: 200px; /* Set a specific width for control */
+    padding: 8px 16px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Rounded borders for a bubbly appearance */
+    box-sizing: border-box;
+    font-size: 14px; /* Smaller font */
+    background-color: #f9f9f9; /* Light background color */
+    transition: background-color 0.3s, border-color 0.3s;
+
+    /* Remove default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Dropdown hover style */
+select:hover {
+    background-color: #f1f1f1;
+    border-color: #888;
+}
+
+/* Custom arrow */
+select {
+    position: relative;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAW0lEQVRIDbXBAQEAAAABIP6PzgpVQKGowAVQKGowAVQKGowAVQKGowAVQKGowAVQKGowAVQKGowAVQKGowAVQKGowAVQKGowAamxPipFt9M/AAAAAElFTkSuQmCC') no-repeat;
+    background-position: 90% center; 
+    padding-right: 25px; /* Space for the smaller icon */
+}

@@ -1,0 +1,49 @@
+.product-page {
+    width: 75%; /* Taking up 3/4 of the page width */
+    margin: 0 auto; /* Center the product page content */
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.product-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 1.5em;
+    color: green;
+    margin-bottom: 20px;
+}
+
+.product-reviews h2, .product-description h2 {
+    font-size: 1.5em;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.review {
+    margin-bottom: 10px;
+}
+
+.review p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: gold;
+}
+
+.review-count {
+    font-size: 1em;
+    color: #888;
+}

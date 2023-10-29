@@ -1,0 +1,24 @@
+.options {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-left:50px;
+    padding-right:50px;
+    padding-top: 50px;
+    position: relative;  /* so that the dropdown's positioning is relative to this container */
+  }
+.options.mobile{
+  padding-top:100px;
+  padding-bottom:0px;
+}
+.containers{
+    display:grid;
+    height:auto;
+    width:100%;
+    margin-top: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.containers.mobile{
+  display:flex;
+  z-index: 1;
+  flex-wrap:wrap;
+}
