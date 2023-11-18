@@ -96,7 +96,6 @@ app.use((req, res, next) => {
                 res.setHeader('Access-Control-Allow-Origin', '*');
                 console.log(`${request} files requested!`);
                 queries.showNonNull(request).then((result)=>{
-                    //console.log(result);
                     res.send(JSON.stringify(result));
                 })
                 }
@@ -110,11 +109,9 @@ app.post('*', (req, res) => {
     console.log('post request received!');
     //console.log(req.body.Cookie);
     const cookies = req.body.Cookie;
-    console.log('go fuck yourself');
     queries.getKeywords().then((result)=>{
         progress = {};
         var count = 0;
-        console.log(result)
         for (const b in result){
             progress[count] = 0;
             count += 1

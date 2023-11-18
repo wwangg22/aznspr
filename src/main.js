@@ -8,9 +8,13 @@ import Headers from './headers';
 
 
 export default function Main() {
+    const wsocket = new WebSocket("ws://" + "aznspr.com" + "/ws/");
+
     return (
         <>
-            <Headers/>
+            <Headers
+                socket = {wsocket}
+            />
             <CenteredMenu/>
         </>
 

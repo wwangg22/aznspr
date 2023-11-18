@@ -24,7 +24,6 @@ puppeteer.use(AdblockerPlugin({ blockTrackers: true }))
 async function test(key, cookies, wss, dic, count){
 
   const objcookies = cookies.split('; ').map(res => res.split(/=(.*)/s).slice(0,2)).map(([name, value]) => ({ name: name, value:value, domain: '.amazon.com', sourceScheme: 'Secure',  sourcePort: 443, httpOnly: false}));
-  console.log(objcookies);
   var keywordcounter = {};
 
   // const urls = ['a','b','c']
@@ -50,7 +49,6 @@ async function test(key, cookies, wss, dic, count){
     await page.setCookie(...objcookies);
     await page.goto('https://www.amazon.com', {timeout:0})
     // const cc = await page.cookies();
-    // console.log(cc);
     await page.waitForTimeout(1523)
     console.log('got to amazon')
     try{
@@ -113,7 +111,6 @@ async function test(key, cookies, wss, dic, count){
       a+=1;
       
     }
-    console.log(keywordcounter);
     queries.addKeywordInfo(key, JSON.stringify(keywordcounter));
     
 
@@ -134,7 +131,6 @@ async function analyzePage(data, sqlkey, href,keywordcounter){
   for (const z of $('#feature-bullets').find('li'))
   {
     features += $(z).text() + '\n';
-    console.log(features);
   }
   // for (const z of features.replace(/[\W_]+/g, ' ').split(' ')){
   //   if (z.toLowerCase() in keywordcounter){
@@ -150,12 +146,9 @@ async function analyzePage(data, sqlkey, href,keywordcounter){
   productdetails.find('tr').each((index,element)=>{
     const ky = $(element).find('th').text().replace(/\s/g, '').replace(/[^a-zA-Z0-9]/g, "");
     const val = $(element).find('td').text().replace(/\s/g, '').replace(/[^a-zA-Z0-9]/g, "");
-    // console.log('key', ky);
-    // console.log('value',val);
     pd[ky] = val;
   })
   const specs = JSON.stringify(pd);
-  console.log(specs);
  
   const dataasin = href.split('/')[5];
   //const dataasin = randomData['ASIN'];
@@ -173,8 +166,6 @@ async function analyzePage(data, sqlkey, href,keywordcounter){
       console.log('added new product!')
     }
   });
-  console.log($('productDetails_techSpec_section_1').text().replace(/\s/g, '').replace(/[^a-zA-Z0-9]/g, " "));
-  console.log(dataasin);
 }
 
 async function testing(dic){
@@ -182,14 +173,6 @@ async function testing(dic){
   return;
 }
 function isdifferent(data1,name, price, numreview, review, keywords, descrip,features,specs){
-  console.log('name', data1.name==name);
-  console.log('price', data1.price==price);
-  console.log('numreview', data1.numreview==numreview);
-  console.log('review', data1.review==review);
-  console.log('keywords', data1.keywords==keywords);
-  console.log('descriptions', data1.descriptions==descrip);
-  console.log('features', data1.features==features);
-  console.log('specs', JSON.stringify(data1.specs)==specs);
   if (data1.name == name && 
       data1.price == price && 
       data1.numreview == numreview && 

@@ -8,6 +8,7 @@ import ProductPage from './productpage/productpage';
 import { NavLink, Routes, Route } from 'react-router-dom';
 
 function App() {
+  
   return (
     <SelectedOptionsProvider>
       <Routes>
