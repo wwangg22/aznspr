@@ -1,7 +1,5 @@
 var mysql =  require('mysql2');
 var dotenv =  require('dotenv');
-const { data } = require('cheerio/lib/api/attributes');
-
 dotenv.config();
 
 
