@@ -1,5 +1,6 @@
 var mysql =  require('mysql2');
 var dotenv =  require('dotenv');
+const { data } = require('cheerio/lib/api/attributes');
 
 dotenv.config();
 
@@ -51,7 +52,7 @@ async function getMostRecent(dataasin){
 }
 
 async function showNonNull(keyword){
-    const [rows] = await pool.query('SELECT * FROM productinfo WHERE keywords = ? GROUP BY dataasin', [keyword]);
+    const [rows] = await pool.query('SELECT productinfo.* FROM productinfo, (SELECT dataasin, max(id) as id FROM productinfo GROUP BY dataasin) recent_sales WHERE productinfo.id = recent_sales.id AND keywords = ?;', [keyword]);
     return rows;
 }
 
