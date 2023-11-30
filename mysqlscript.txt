@@ -14,7 +14,8 @@ CREATE TABLE productinfo (
   descriptions text,
   features text,
   specs JSON,
-  created TIMESTAMP NOT NULL DEFAULT NOW()
+  created TIMESTAMP NOT NULL DEFAULT NOW(),
+  pass VARCHAR
 );
 CREATE TABLE keywords(
   id integer PRIMARY KEY AUTO_INCREMENT,

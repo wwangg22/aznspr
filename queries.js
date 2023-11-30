@@ -66,6 +66,10 @@ async function findKeywordInfo(keyword){
     const [rows] = await pool.query('SELECT * FROM keywordinfo WHERE keyword = ?', [keyword]);
     return rows;
 }
+async function getPasswords(){
+    const [rows] = await pool.query('SELECT * FROM passwords');
+    return rows;
+}
 
 
 module.exports = {
@@ -79,5 +83,6 @@ module.exports = {
     removeKeyword,
     showNonNull,
     addKeywordInfo,
-    findKeywordInfo
+    findKeywordInfo,
+    getPasswords
 }
