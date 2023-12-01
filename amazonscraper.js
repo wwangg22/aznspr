@@ -160,6 +160,9 @@ async function analyzePage(data, sqlkey, href,keywordcounter){
         queries.addProduct(name, dataasin, price, numreview, review, sqlkey, href, desc, features, specs);
         console.log('product changed!')
       }
+      else{
+        console.log('remained the same')
+      }
     }
     else{
       queries.addProduct(name, dataasin, price, numreview, review, sqlkey, href, desc, features,  specs);

@@ -54,10 +54,8 @@ app.options('*', cors(corsOptions));
 app.use(express.json());
 
 app.use((req, res, next) => {
-  console.log(req);
   console.log("req received from client");
   console.log(req.method);
-  console.log(req.body);
   console.log(req.originalUrl);
   res.setHeader('Access-Control-Allow-Origin', '*');
   if (admin(req)) {
@@ -68,7 +66,6 @@ app.use((req, res, next) => {
       if (Object.keys(req.query).length) {
         console.log("query");
         const dic = req.query;
-        console.log(dic);
         if (dic.keywords) {
           queries.findExactKeyword(dic.keywords).then((result) => {
             if (result.length > 0) {
@@ -135,7 +132,6 @@ app.use((req, res, next) => {
         const dic = req.body;
         if (dic['password']) {
           queries.getPasswords().then((result) => {
-            console.log(result);
             if (bcrypt.compareSync(dic['password'], result[0]["pass"])) {
               res.cookie("test", "testing");
               res.send(JSON.stringify({ response: "success" }));

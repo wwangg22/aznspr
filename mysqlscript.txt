@@ -14,8 +14,7 @@ CREATE TABLE productinfo (
   descriptions text,
   features text,
   specs JSON,
-  created TIMESTAMP NOT NULL DEFAULT NOW(),
-  pass VARCHAR
+  created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 CREATE TABLE keywords(
   id integer PRIMARY KEY AUTO_INCREMENT,
@@ -26,6 +25,11 @@ CREATE TABLE keywordinfo(
 	id integer PRIMARY KEY AUTO_INCREMENT,
     counter JSON,
     keyword varchar(255) NOT NULL
+);
+
+create table passwords(
+	id integer PRIMARY KEY AUTO_INCREMENT,
+    pass varchar(255) NOT NULL
 );
 
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
