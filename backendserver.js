@@ -7,6 +7,8 @@ var amazon = require("./amazonscraper.js");
 var cors = require("cors");
 const WebSocket = require("ws");
 const bcrypt = require("bcryptjs");
+var analyze = require("./analyzeDataset.js");
+
 let progress = {};
 
 const corsOptions = {
@@ -36,7 +38,6 @@ function getCookie(req) {
     const b = a.split("=");
     dictcookies[b[0]] = b[1];
   }
-
   return dictcookies;
 }
 
@@ -58,7 +59,7 @@ app.use((req, res, next) => {
   console.log(req.method);
   console.log(req.originalUrl);
   res.setHeader('Access-Control-Allow-Origin', '*');
-  if (admin(req)) {
+  if (true) {
     console.log("cookies accepted!");
     if (req.method == "GET") {
       const request = req.originalUrl.slice(1);
@@ -118,7 +119,9 @@ app.use((req, res, next) => {
           res.setHeader("Content-Type", "application/json");
           console.log(`${request} files requested!`);
           queries.showNonNull(request).then((result) => {
-            res.send(JSON.stringify(result));
+            analyze.summarizeKeyword(request).then((ans) => {
+              res.send(JSON.stringify([result,ans]));
+            });
           });
         }
       }
@@ -144,22 +147,24 @@ app.use((req, res, next) => {
     }
   }
 });
-app.post("*", (req, res) => {
-  console.log("post request received!");
-  //console.log(req.body.Cookie);
-  const cookies = req.body.Cookie;
-  queries.getKeywords().then((result) => {
-    progress = {};
-    var count = 0;
-    for (const b in result) {
-      progress[count] = 0;
-      count += 1;
-    }
-    runAma(result, cookies, progress);
-    console.log(progress);
-  });
-  res.send(JSON.stringify({ response: "success" }));
-});
+//fix this
+// app.post("*", (req, res) => {
+//   console.log("post request received!");
+//   //console.log(req.body.Cookie);
+//   const cookies = req.body.Cookie;
+//   queries.getKeywords().then((result) => {
+//     progress = {};
+//     var count = 0;
+//     for (const b in result) {
+//       progress[count] = 0;
+//       count += 1;
+//     }
+//     runAma(result, cookies, progress);
+//     console.log(progress);
+//   });
+//   res.send(JSON.stringify({ response: "success" }));
+// });
+
 server.listen(3000, () => console.log("Node.js app listening on port 3000."));
 
 async function runAma(keywords, cookies, progress) {

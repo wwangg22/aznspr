@@ -4,6 +4,7 @@ import { SelectedOptionsContext } from './options';
 import { NavLink } from 'react-router-dom';
 import url from './url';
 import { isMobile } from './ismobile';
+import Summary from './summary';
 
 
 
@@ -11,6 +12,7 @@ export default function CenteredMenu() {
 
     const { selectedOptions, setSelectedOptions, keyword, setkeyword } = useContext(SelectedOptionsContext);
     const [data, setData] = useState([]);
+    const [wordc, setWordc] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const boxTexts = selectedOptions;
     useEffect(()=>{
@@ -32,7 +34,11 @@ export default function CenteredMenu() {
                     else{
                         return response.json()
                     }
-                    }).then((res) => {console.log(res);
+                    }).then((ans) => {
+                        const wc = ans[1];
+                        const res = ans[0];
+                        console.log(wc);
+                    setWordc(wc);
                     const newArray = {};
                     for (const b of Object.keys(res)) {
                         newArray[b] = res[b];
@@ -62,6 +68,9 @@ export default function CenteredMenu() {
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Summary
+                wordCount = {wordc}
             />
             <div className="centered-menu">
                 {data.filter(item => 

@@ -36,23 +36,6 @@ function App() {
             }
           });
 
-    // fetch(`${url.url}/?password=${answer}`,{
-    //   mode: 'cors'
-    //   }).then(
-    //     response => {
-    //       if (!response.ok){
-    //           throw new Error(`HTTP error: ${response.status}`);
-    //       }
-    //       else{
-    //           return response.json()
-    //       }
-    //     }
-    // ).then(
-    //   res => {
-    //     console.log(res);
-    //   }
-    // )
-
   };
   
   return (
