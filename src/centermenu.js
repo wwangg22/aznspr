@@ -53,6 +53,7 @@ export default function CenteredMenu() {
                 
             }}
             setData([]);
+            setWordc([]);
             getOptions();
     }, [boxTexts])
 
@@ -69,9 +70,14 @@ export default function CenteredMenu() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Summary
-                wordCount = {wordc}
-            />
+            {
+                wordc.length ? 
+                    <Summary
+                        wordCount = {wordc}
+                    />
+                :
+                <div></div>
+            }
             <div className="centered-menu">
                 {data.filter(item => 
                     item.dataasin.toLowerCase().includes(searchTerm.toLowerCase()) || 

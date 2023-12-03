@@ -24,7 +24,7 @@ export default function ReRunBtn(){
         return fetch(`${url.url}/a?amazon=true`,{
             method: 'POST',
             body: JSON.stringify({
-                'Cookie':cookies
+                'AmazonCookie':cookies
             }),
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

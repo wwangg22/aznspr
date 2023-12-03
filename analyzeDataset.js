@@ -1,5 +1,5 @@
 var queries = require("./queries.js");
-
+const fs = require('fs')
 
 const forbidden = ['and','to','a','for','but','you','on','is','with','your','the','of','can','in','it','this','or','no', '1','2','3','4']
 
@@ -45,27 +45,21 @@ async function summarizeKeyword(keyword){
     return items.slice(0, 15);
 }
 
-// const regex = /[a-zA-Z0-9]+/g;
 
-// str = 'hello world, my name is john';
-// for (const s of str.matchAll(regex)){
-//     console.log(s[0]);
-// }
-// console.log(str.matchAll(regex));
-// summarizeKeyword('tableaccessories').then(ans => {
+async function returnFullText(keyword){
+    const products = await queries.showNonNull(keyword);
+    var gianttext = '';
 
-//     var items = Object.keys(ans).map(function(key) {
-//         return [key, ans[key]];
-//       });
-      
-//       // Sort the array based on the second element
-//       items.sort(function(first, second) {
-//         return second[1] - first[1];
-//       });
-      
-//       // Create a new array with only the first 5 items
-//       console.log(items.slice(0, 50));
-// })
+    for (const p of products){
+        gianttext += p['features'].replace(/undefined|[^A-Za-z0-9_.,'" ()\n:;]*/g,'') + '\n';
+    }
+
+    fs.writeFile('gianttext.txt', gianttext, function (err) {
+        if (err) return console.log(err);
+        console.log('Hello World > helloworld.txt');
+      }
+    );
+}
 
 module.exports = {
     summarizeKeyword
